@@ -33,6 +33,7 @@ export default defineConfig(({command}) => {
           if (fs.existsSync(distIndex)) {
             fs.mkdirSync(docsDir, {recursive: true});
             fs.copyFileSync(distIndex, path.resolve(docsDir, 'index.html'));
+            fs.writeFileSync(path.resolve(docsDir, '.nojekyll'), '');
           }
         },
       },
